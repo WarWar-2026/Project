@@ -654,7 +654,7 @@
 
         <div class="destination-detail-container">
 
-            <h1 class="destination-title">Shwedagon Pagoda</h1>
+            <h1 id="shwedagon" class="destination-title">Shwedagon Pagoda</h1>
             <div class="custom-slider">
                 <div class="custom-slides" id="slides1">
                     <img src="images/shwedagon1.jpg" alt="pic1">
@@ -689,7 +689,7 @@
 
             </div>
 
-            <h1 class="destination-title">Kyaiktiyo Pagoda (Golden Rock)</h1>
+            <h1 id="kyaiktiyo" class="destination-title">Kyaiktiyo Pagoda (Golden Rock)</h1>
             <div class="custom-slider">
                 <div class="custom-slides" id="slides2">
                     <img src="images/goldenrock1.jpg" alt="pic1">
@@ -724,7 +724,7 @@
 
             </div>
 
-            <h1 class="destination-title">Inle Lake</h1>
+            <h1 id="inle" class="destination-title">Inle Lake</h1>
             <div class="custom-slider">
                 <div class="custom-slides" id="slides3">
                     <img src="images/inlelake1.jpg" alt="pic1">
@@ -771,7 +771,7 @@
 
             </div>
 
-            <h1 class="destination-title">Ngapali Beach</h1>
+            <h1 id="ngapali" class="destination-title">Ngapali Beach</h1>
             <div class="custom-slider">
                 <div class="custom-slides" id="slides4">
                     <img src="images/beach1.jpg" alt="pic1">
@@ -1053,27 +1053,45 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-        function openNav() { document.getElementById("mySidebar").style.width = "300px"; }
-        function closeNav() { document.getElementById("mySidebar").style.width = "0"; }
-        function handleSearch() {
-            let query = document.getElementById("menuSearch").value;
-            if (query) { alert("Searching for: " + query); closeNav(); }
-        }
+function openNav() { document.getElementById("mySidebar").style.width = "300px"; }
+function closeNav() { document.getElementById("mySidebar").style.width = "0"; }
 
-        var swiper1 = new Swiper(".mySwiper", {
-            loop: true,
-            autoplay: { delay: 4000, disableOnInteraction: false },
-            pagination: { el: ".swiper-pagination", clickable: true },
-            navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
-            speed: 800,
-        });
+function handleSearch() {
+    let query = document.getElementById("menuSearch").value.toLowerCase().trim();
 
-        var swiper2 = new Swiper(".highlightSwiper", {
-            loop: true,
-            autoplay: { delay: 4000, disableOnInteraction: false },
-            speed: 800,
-        });
-    </script>
+    if (query.includes("shwedagon")) {
+        document.getElementById("shwedagon").scrollIntoView({ behavior: "smooth" });
+    }
+    else if (query.includes("kyaiktiyo") || query.includes("golden rock")) {
+        document.getElementById("kyaiktiyo").scrollIntoView({ behavior: "smooth" });
+    }
+    else if (query.includes("inle")) {
+        document.getElementById("inle").scrollIntoView({ behavior: "smooth" });
+    }
+    else if (query.includes("ngapali")) {
+        document.getElementById("ngapali").scrollIntoView({ behavior: "smooth" });
+    }
+    else {
+        alert("Not found!");
+    }
+
+    closeNav();
+}
+
+var swiper1 = new Swiper(".mySwiper", {
+    loop: true,
+    autoplay: { delay: 4000, disableOnInteraction: false },
+    pagination: { el: ".swiper-pagination", clickable: true },
+    navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
+    speed: 800,
+});
+
+var swiper2 = new Swiper(".highlightSwiper", {
+    loop: true,
+    autoplay: { delay: 4000, disableOnInteraction: false },
+    speed: 800,
+});
+</script>
     <footer class="main-footer">
         <div class="footer-black-box">
             <div class="copyright-text">
