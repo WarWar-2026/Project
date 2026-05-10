@@ -6,124 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Free Photos</title>
     <link rel="icon" href="images/Favicon.jpg" type="image/jpeg" sizes="128x128">
+
+    <link rel="stylesheet" href="nav.css">
     <style>
-        body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            background: linear-gradient(to bottom, #e3f2e1, #cce1c9);
-            color: #333;
-        }
-
-        /* Header CSS */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 20px;
-            background-color: white;
-            border-bottom: 1px solid #ddd;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            width: 100%;
-            box-sizing: border-box;
-        }
-
-        .header-left .logo-container img {
-            height: auto;
-            width: 80px;
-            display: block;
-            margin-left: 2px;
-        }
-
-        .header-title {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            color: #d49a00;
-            font-size: 1.8rem;
-            font-weight: bold;
-            white-space: nowrap;
-            text-shadow: 2px 2px 10px #FFFF00;
-        }
-
-        .menu-bar-icon {
-            font-size: 2rem;
-            cursor: pointer;
-            color: #333;
-        }
-
-        /* Sidebar/Menu CSS */
-        .sidebar {
-            height: 100%;
-            width: 0;
-            position: fixed;
-            z-index: 1001;
-            top: 0;
-            right: 0;
-            background-color: white;
-            overflow-x: hidden;
-            transition: 0.5s;
-            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .sidebar-content {
-            padding: 20px;
-        }
-
-        .closebtn {
-            font-size: 36px;
-            cursor: pointer;
-            display: block;
-            text-align: right;
-            margin-bottom: 20px;
-        }
-
-        .sidebar-search {
-            display: flex;
-            margin-bottom: 30px;
-            gap: 5px;
-        }
-
-        .sidebar-search input {
-            flex: 1;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        .sidebar-search button {
-            padding: 10px;
-            background: #333;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        .sidebar a {
-            padding: 15px 0;
-            text-decoration: none;
-            font-size: 1.1rem;
-            color: #333;
-            display: block;
-            border-bottom: 1px solid #eee;
-            transition: 0.3s;
-        }
-
-        /* Sidebar menu hover gold color effect */
-        .sidebar a:hover {
-            color: #d49a00;
-        }
-
         /* Main Content wrapper */
         .main-wrapper {
             padding: 20px 10%;
         }
 
-        h1 {
+        .sub-head {
             text-align: center;
             color: #d49a00;
             font-size: 36px;
@@ -131,32 +22,33 @@
         }
 
         .credit {
-            text-align: center;
+            margin: 0 auto;
             margin-bottom: 20px;
-            padding-left: 50px;
             font-size: 1.1rem;
             font-weight: 500;
+            /* text-indent: 50px;*/
         }
 
         /* Category Menu - Left Aligned, Light Green */
         .sec-menu {
             display: flex;
-            justify-content: flex-start;
-            gap: 15px;
+            gap: 10px;
             position: sticky;
-            top: 85px;
+            top: 82px;
             background-color: rgb(234, 248, 220);
-            padding: 10px 20px;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             z-index: 100;
             border-radius: 5px;
             opacity: 0.9;
+            height: 30px;
+
         }
 
         .sec-menu a {
             text-decoration: none;
             color: rgb(58, 13, 163);
             font-weight: bold;
+            height: 16px;
             transition: 0.3s;
         }
 
@@ -164,7 +56,7 @@
         .sec-menu a:hover {
             text-decoration: underline;
             color: green;
-            font-size: 18px;
+            font-size: 15px;
         }
 
         /* Photo Grid */
@@ -176,20 +68,23 @@
         }
 
         .subhead {
-            scroll-margin-top: 140px;
+            scroll-margin-top: 122px;
         }
 
+
         .imgcontainer {
+            width: 100%;
             break-inside: avoid;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             margin-bottom: 15px;
             background: transparent;
-            text-align: center;
+            border-radius: 10px;
+
+            /* box-sizing: border-box; */
         }
 
         .imgcontainer img {
             width: 100%;
-            height: 250px;
-            object-fit: cover;
             display: block;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -200,6 +95,8 @@
             display: block;
             padding: 5px 0;
             font-size: 0.9rem;
+            text-align: center;
+
         }
 
         .imgcontainer:hover img {
@@ -211,100 +108,9 @@
                 column-count: 2;
             }
         }
-        /*Background color for Footer*/
-        .main footer {
-           padding: 60px 0 150px 0;
-           padding-bottom: 120px !important;
-            margin-bottom: 0;
+
+        footer {
             text-align: center;
-            font-family: 'Times New Roman', Times, serif;
-        }
-
-        .footer-black-box {
-            background-color: #76f486;
-            padding-top: 50px;
-            padding-bottom: 40px;
-            text-align: center;
-            width: 100%;
-        }
-
-
-        .footer-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .footer-line, hr {
-            display: none;
-        }
-
-        .footer-text {
-            font-style: italic;
-            color: #9ba69b;
-            cursor: default;
-
-        }
-
-        /*text style for footer*/
-        .copyright-text p {
-            color: #090909;
-            font-size: 18px;
-            font-style: italic !important;
-            margin-bottom: 10px;
-            display: block;
-            text-align: center;
-        }
-
-        .copyright-text i {
-            font-style: italic;
-        }
-
-        .footer-links {
-            margin-top: 10px;
-            font-style: italic;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        .footer-links a {
-            color: #000000;
-            text-decoration: none;
-            margin: 0 10px;
-            font-size: 19px;
-            font-weight: 500;
-        }
-
-        .footer-links a:hover {
-            color: #ffe600;
-        }
-
-        /*BACK To TOP*/
-
-        .back-to-top {
-            text-align: center;
-            margin-top: 30px;
-            margin-bottom: 130px;
-            display: block;
-        }
-
-        .back-to-top a {
-            text-decoration: none;
-            color: #0a0a0a;
-            font-size: 16px;
-            letter-spacing: 1px;
-            display: inline-block;
-
-        }
-
-        .back-to-top .arrow {
-            font-size: 24px;
-            line-height: 1;
-
-        }
-
-        .back-to-top a:hover {
-            color: #ffe600;
         }
     </style>
 </head>
@@ -314,19 +120,23 @@
     <header>
         <div class="header-left">
             <div class="logo-container">
-                <img src="images/Website Logo.jpg" alt="Logo">
+                <img src="images/Website Logo.jpg" alt="Logo"
+                    style="width: 80px;height: auto;margin-left: 2px;transition: 0.3s;">
             </div>
         </div>
-        <div class="header-title">Explore the Beauty of Myanmar</div>
+        <div class="header-title">Explore
+            the Beauty of Myanmar</div>
+
         <div class="menu-bar-icon" onclick="openNav()">&#9776;</div>
     </header>
-
     <div id="mySidebar" class="sidebar">
         <div class="sidebar-content">
             <span class="closebtn" onclick="closeNav()">&times;</span>
             <div class="sidebar-search">
-                <input type="text" id="menuSearch" placeholder="Search...">
-                <button onclick="handleSearch()">Search</button>
+                <div class="search"><input type="text" id="menuSearch" placeholder="Search..."></div>
+                <div class="searchbutton">
+                    <button onclick="handleSearch()">Search</button>
+                </div>
             </div>
             <a href="index.html">Home</a>
             <a href="Destinations.html">Destinations</a>
@@ -335,205 +145,28 @@
             <a href="Free Photos.html">Free Photos</a>
         </div>
     </div>
-
-    <div class="main-wrapper">
-        <h1>Free Travel Photos</h1>
-
-        <div class="credit">
-            <p>Here is a collection of free images of Myanmar that anyone can download and redistribute. All images are collected by Zenith Team. We respectfully give credit to the original owners of the images.</p>
-        </div>
-
-        <div class="sec-menu">
-            <a href="#scenery">Scenery</a>
-            <a href="#rural">Rural Life</a>
-            <a href="#food">Food</a>
-            <a href="#culture">Culture</a>
-        </div>
-
-        <!-- Scenery Section -->
-        <div class="container subhead" id="scenery">
-            <div class="imgcontainer">
-                <img src="images/Scenery-Kalaw.jpg" alt="image">
-                <span>Kalaw, Shan State</span>
-            </div>
-            <div class="imgcontainer">
-                <img src="images/Scenery-Pyin Oo Lwin.jpg" alt="image">
-                <span>Anauk Taung, PyinOoLwin</span>
-            </div>
-            <div class="imgcontainer">
-                <img src="images/Scenery-anisakan waterfall.webp" alt="image">
-                <span>Anisakan WaterFall</span>
-            </div>
-            <div class="imgcontainer">
-                <img src="images/Scenery-beautiful kalaw.jpg" alt="image">
-                <span>Chin State</span>
-            </div>
-            <div class="imgcontainer">
-                <img src="images/Scenery-myanmar nature.jpg" alt="image">
-                <span>Nature</span>
-            </div>
-            <div class="imgcontainer">
-                <img src="images/Scenery-green terrace.jpg" alt="image">
-                <span>Terrace Farming, Chin State</span>
-            </div>
-            <div class="imgcontainer">
-                <img src="images/KyaukKaLap Monastery.jpg" alt="image">
-                <span>KyaukKaLap Monastery, Mandalay</span>
-            </div>
-            <div class="imgcontainer">
-                <img src="images/Scenery-mount popa.jpg" alt="image">
-                <span>Mount Popa, Mandalay</span>
-            </div>
-            <div class="imgcontainer">
-                <img src="images/Scenery-beautiful landacape near Hpa-an,Kayin State.jpg" alt="image">
-                <span>Near Hpa-an, Kayin State</span>
-            </div>
-             <div class="imgcontainer">
-                <img src="images/Pindaya Farm house.jpg" alt="image">
-                <span>Pindaya Farm House</span>
-            </div>
-            <div class="imgcontainer">
-                <img src="images/Scenery-nature in Bagan.jpg" alt="image">
-                <span>Feeling the nature in Bagan</span>
-            </div>
-            <div class="imgcontainer">
-                <img src="images/Scenery-ngapali-beach.jpg" alt="image">
-                <span>Ngapli Beach</span>
-            </div>
-        </div>
-
-        <!-- Rural Life Section -->
-        <div class="container subhead" id="rural">
-            <div class="imgcontainer">
-                <img src="images/rural-floating island.jpg" alt="image">
-                <span>Floating Island</span>
-            </div>
-            <div class="imgcontainer">
-                <img src="images/rural-morning.jpg" alt="image">
-                <span>Donation in the Morning</span>
-            </div>
-            <div class="imgcontainer">
-                <img src="images/rural-Red silk Cotton Flowers.jpg" alt="image">
-                <span>Red silk Cotton Flowers</span>
-            </div>
-            <div class="imgcontainer">
-                <img src="images/rural-art and craft.jpg" alt="image">
-                <span>Arts and Crafts</span>
-            </div>
-            <div class="imgcontainer">
-                <img src="images/rural-sunset.jpg" alt="image">
-                <span>Nature and sunset</span>
-            </div>
-            <div class="imgcontainer">
-                <img src="images/rural-Grazing.jpg" alt="image">
-                <span>Grazing</span>
-            </div>
-            <div class="imgcontainer">
-                <img src="images/rural-playing.jpg" alt="image">
-                <span>Playing Village Girls</span>
-            </div>
-            <div class="imgcontainer">
-                <img src="images/rural-Bull Carts.jpg" alt="image">
-                <span>Bull Carts</span>
-            </div>
-            <div class="imgcontainer">
-                <img src="images/Burma village house.jpg" alt="image">
-                <span>Burma Village House</span>
-            </div>
-            <div class="imgcontainer">
-                <img src="images/Plating a plant.jpg" alt="image">
-                <span>Plating a Plant in Myanmar</span>
-            </div>
-            <div class="imgcontainer">
-                <img src="images/overview of myanmar village.jpg" alt="image">
-                <span>Overview of Myanmar Village</span>
-            </div>
-            <div class="imgcontainer">
-                <img src="images/rural-Making Bamboo-strings.jpg" alt="image">
-                <span>Making Bamboo-strings</span>
-            </div>
-        </div>
-
-        <!-- Food Section -->
-        <div class="container subhead" id="food">
-            <div class="imgcontainer">
-                <img src="images/Mont Kywae Thae.jpg" alt="image">
-                <span>Mont Kywae Thae</span>
-            </div>
-            <div class="imgcontainer">
-                <img src="images/Mohinga.jpg" alt="image">
-                <span>Mohinga</span>
-            </div>
-            <div class="imgcontainer">
-                <img src="images/Shwe Yin Aye.jpg" alt="image">
-                <span>Shwe Yin Aye</span>
-            </div>
-            <div class="imgcontainer">
-                <img src="images/Bain Mont.jpg" alt="image">
-                <span>Bain Mont</span>
-            </div>
-            <div class="imgcontainer">
-                <img src="images/A Kyaw Sone1.jpg" alt="image">
-                <span>A Kyaw Sone</span>
-            </div>
-            <div class="imgcontainer">
-                <img src="images/Mont Lone Yae Baw.jpg" alt="image">
-                <span>Mont Lone Yae Baw</span>
-            </div>
-            <div class="imgcontainer">
-                <img src="images/Laphet Thohk.jpg" alt="image">
-                <span>Laphet Thohk</span>
-            </div>
-            <div class="imgcontainer">
-                <img src="images/Mont Lat Saung.jpg" alt="image">
-                <span>Mont Lat Saung</span>
-            </div>
-        </div>
-
-        <!-- Culture Section -->
-        <div class="container subhead" id="culture">
-            <div class="imgcontainer">
-                <img src="images/Beautiful mm girl.jpg" alt="image">
-                <span>Beautiful Myanmar Girl</span>
-            </div>
-            <div class="imgcontainer">
-                <img src="images/Novitiate-Ceremony-Shin-Pyu-In-Myanmar.jpg" alt="image">
-                <span>Novitiation Ceremony</span>
-            </div>
-            <div class="imgcontainer">
-                <img src="images/Loverly Flower Vendor1.jpg" alt="image">
-                <span>Loverly Flower Vendor</span>
-            </div>
-            <div class="imgcontainer">
-                <img src="images/Myanmar Puppet.jpg" alt="image">
-                <span>Myanmar Puppet</span>
-            </div>
-            <div class="imgcontainer">
-                <img src="images/Colonial Era Fashion1.jpg" alt="image">
-                <span>Colonial Era Fashion,Traditional Clothes</span>
-            </div>
-            <div class="imgcontainer">
-                <img src="images/Thanaka.jpg" alt="image">
-                <span>Thanaka Paste</span>
-            </div>
-            <div class="imgcontainer">
-                <img src="images/Myanmar-Dances.jpg" alt="image">
-                <span>Burmese Dance</span>
-            </div>
-            <div class="imgcontainer">
-                <img src="images/wearing thanaka.jpg" alt="image">
-                <span>Wearing Thanaka</span>
-            </div>
-        </div>
-    </div>
-
-    <script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script class="ss">
+        // Sidebar functions
         function openNav() {
-            document.getElementById("mySidebar").style.width = "300px";
+            // Check screen width
+            if (window.innerWidth <= 480) {
+                document.getElementById("mySidebar").style.width = "35%";
+            } else if (window.innerWidth <= 768) {
+                document.getElementById("mySidebar").style.width = "30%";
+            } else {
+                // Standard size for Desktop
+                document.getElementById("mySidebar").style.width = "200px";
+            }
+        }
+
+        function closeNav() {
+            document.getElementById("mySidebar").style.width = "0";
         }
         function closeNav() {
             document.getElementById("mySidebar").style.width = "0";
         }
+
         function handleSearch() {
             let query = document.getElementById("menuSearch").value;
             if (query) {
@@ -542,24 +175,245 @@
             }
         }
     </script>
+    <div class="main-wrapper">
+        <h1 class="sub-head">Free Travel Photos</h1>
+
+        <div class="credit">
+            <p>Here is a collection of free images of Myanmar that anyone can download and redistribute. All images are
+                collected by Zenith Team. We respectfully give credit to the original owners of the images.</p>
+        </div>
+
+        <div class="sec-menu">
+            <a href="#scenery">Scenery</a>
+            <a href="#rural">Rural Life</a>
+            <a href="#food">Food</a>
+            <a href="#culture">Culture</a>
+        </div>
+        <!-- Scenery Section -->
+        <div class="container subhead" id="scenery">
+            <div class="imgcontainer">
+                <a href="images/Scenery-Kalaw.jpg" target="_blank"> <img src="images/Scenery-Kalaw.jpg" alt="image"></a>
+                <span>Kalaw, Shan State</span>
+            </div>
+            <div class="imgcontainer">
+                <a href="images/Scenery-Pyin Oo Lwin.jpg" target="_blank"> <img src="images/Scenery-Pyin Oo Lwin.jpg"
+                        alt="image"></a>
+                <span>Anauk Taung, PyinOoLwin</span>
+            </div>
+            <div class="imgcontainer">
+                <a href="images/Scenery-anisakan waterfall.webp" target="_blank"> <img
+                        src="images/Scenery-anisakan waterfall.webp" alt="image"></a>
+                <span>Anisakan WaterFall</span>
+            </div>
+            <div class="imgcontainer">
+                <a href="images/Scenery-beautiful kalaw.jpg" target="_blank"> <img
+                        src="images/Scenery-beautiful kalaw.jpg" alt="image"></a>
+                <span>Chin State</span>
+            </div>
+            <div class="imgcontainer">
+                <a href="images/Scenery-myanmar nature.jpg" target="_blank"> <img
+                        src="images/Scenery-myanmar nature.jpg" alt="image"></a>
+                <span>Nature</span>
+            </div>
+            <div class="imgcontainer">
+                <a href="images/Scenery-green terrace.jpg" target="_blank"> <img src="images/Scenery-green terrace.jpg"
+                        alt="image"></a>
+                <span>Terrace Farming, Chin State</span>
+            </div>
+            <div class="imgcontainer">
+                <a href="images/KyaukKaLap Monastery.jpg" target="_blank"> <img src="images/KyaukKaLap Monastery.jpg"
+                        alt="image"></a>
+                <span>KyaukKaLap Monastery, Mandalay</span>
+            </div>
+            <div class="imgcontainer">
+                <a href="images/Scenery-mount popa.jpg" target="_blank"> <img src="images/Scenery-mount popa.jpg"
+                        alt="image"></a>
+                <span>Mount Popa, Mandalay</span>
+            </div>
+            <div class="imgcontainer">
+                <a href="images/Scenery-beautiful landacape near Hpa-an,Kayin State.jpg" target="_blank"> <img
+                        src="images/Scenery-beautiful landacape near Hpa-an,Kayin State.jpg" alt="image"></a>
+                <span>Near Hpa-an, Kayin State</span>
+            </div>
+            <div class="imgcontainer">
+                <a href="images/Pindaya Farm house.jpg" target="_blank"> <img src="images/Pindaya Farm house.jpg"
+                        alt="image"></a>
+                <span>Pindaya Farm House</span>
+            </div>
+            <div class="imgcontainer">
+                <a href="images/Scenery-nature in Bagan.jpg" target="_blank"> <img
+                        src="images/Scenery-nature in Bagan.jpg" alt="image"></a>
+                <span>Feeling the nature in Bagan</span>
+            </div>
+            <div class="imgcontainer">
+                <a href="images/Scenery-ngapali-beach.jpg" target="_blank"> <img src="images/Scenery-ngapali-beach.jpg"
+                        alt="image"></a>
+                <span>Ngapli Beach</span>
+            </div>
+        </div>
+        <!-- Rural Life Section -->
+        <div class="container subhead" id="rural">
+            <div class="imgcontainer">
+                <a href="images/rural-floating island.jpg" target="_blank"> <img src="images/rural-floating island.jpg"
+                        alt="image"></a>
+                <img src="images/rural-floating island.jpg" alt="image">
+                <span>Floating Island</span>
+            </div>
+            <div class="imgcontainer">
+                <a href="images/rural-morning.jpg" target="_blank"> <img src="images/rural-morning.jpg" alt="image"></a>
+                <span>Donation in the Morning</span>
+            </div>
+            <div class="imgcontainer">
+                <a href="images/rural-Red silk Cotton Flowers.jpg" target="_blank"> <img
+                        src="images/rural-Red silk Cotton Flowers.jpg" alt="image"></a>
+                <span>Red silk Cotton Flowers</span>
+            </div>
+            <div class="imgcontainer">
+                <a href="images/rural-art and craft.jpg" target="_blank"> <img src="images/rural-art and craft.jpg"
+                        alt="image"></a>
+                <span>Arts and Crafts</span>
+            </div>
+            <div class="imgcontainer">
+                <a href="images/rural-sunset.jpg" target="_blank"> <img src="images/rural-sunset.jpg" alt="image"></a>
+                <span>Nature and sunset</span>
+            </div>
+            <div class="imgcontainer">
+                <a href="images/rural-Grazing.jpg" target="_blank"> <img src="images/rural-Grazing.jpg" alt="image"></a>
+                <span>Grazing</span>
+            </div>
+            <div class="imgcontainer">
+                <a href="images/rural-playing.jpg" target="_blank"> <img src="images/rural-playing.jpg" alt="image"></a>
+                <span>Playing Village Girls</span>
+            </div>
+            <div class="imgcontainer">
+                <a href="images/rural-Bull Carts.jpg" target="_blank"> <img src="images/rural-Bull Carts.jpg"
+                        alt="image"></a>
+                <span>Bull Carts</span>
+            </div>
+            <div class="imgcontainer">
+                <a href="images/Burma village house.jpg" target="_blank"> <img src="images/Burma village house.jpg"
+                        alt="image"></a>
+                <span>Burma Village House</span>
+            </div>
+            <div class="imgcontainer">
+                <a href="images/Plating a plant.jpg" target="_blank"> <img src="images/Plating a plant.jpg"
+                        alt="image"></a>
+                <span>Plating a Plant in Myanmar</span>
+            </div>
+            <div class="imgcontainer">
+                <a href="images/overview of myanmar village.jpg" target="_blank"> <img
+                        src="images/overview of myanmar village.jpg" alt="image"></a>
+                <span>Overview of Myanmar Village</span>
+            </div>
+            <div class="imgcontainer">
+                <a href="images/rural-Making Bamboo-strings.jpg" target="_blank"> <img
+                        src="images/rural-Making Bamboo-strings.jpg" alt="image"></a>
+                <span>Making Bamboo-strings</span>
+            </div>
+        </div>
+
+        <!-- Food Section -->
+        <div class="container subhead" id="food">
+            <div class="imgcontainer">
+                <a href="images/Mont Kywae Thae.jpg" target="_blank"> <img src="images/Mont Kywae Thae.jpg"
+                        alt="image"></a>
+                <span>Mont Kywae Thae</span>
+            </div>
+            <div class="imgcontainer">
+                <a href="images/Mohinga.jpg" target="_blank"> <img src="images/Mohinga.jpg" alt="image"></a>
+                \ <span>Mohinga</span>
+            </div>
+            <div class="imgcontainer">
+                <a href="images/Shwe Yin Aye.jpg" target="_blank"> <img src="images/Shwe Yin Aye.jpg" alt="image"></a>
+                <span>Shwe Yin Aye</span>
+            </div>
+            <div class="imgcontainer">
+                <a href="images/Bain Mont.jpg" target="_blank"> <img src="images/Bain Mont.jpg" alt="image"></a>
+                <span>Bain Mont</span>
+            </div>
+            <div class="imgcontainer">
+                <a href="images/A Kyaw Sone1.jpg" target="_blank"> <img src="images/A Kyaw Sone1.jpg" alt="image"></a>
+                <span>A Kyaw Sone</span>
+            </div>
+            <div class="imgcontainer">
+                <a href="images/Mont Lone Yae Baw.jpg" target="_blank"> <img src="images/Mont Lone Yae Baw.jpg"
+                        alt="image"></a>
+                <span>Mont Lone Yae Baw</span>
+            </div>
+            <div class="imgcontainer">
+                <a href="images/Laphet Thohk.jpg" target="_blank"> <img src="images/Laphet Thohk.jpg" alt="image"></a>
+                <span>Laphet Thohk</span>
+            </div>
+            <div class="imgcontainer">
+                <a href="images/Mont Lat Saung.jpg" target="_blank"> <img src="images/Mont Lat Saung.jpg"
+                        alt="image"></a>
+                <span>Mont Lat Saung</span>
+            </div>
+        </div>
+        <!-- Culture Section -->
+        <div class="container subhead" id="culture">
+            <div class="imgcontainer">
+                <a href="images/Beautiful mm girl.jpg" target="_blank"> <img src="images/Beautiful mm girl.jpg"
+                        alt="image"></a>
+                <span>Beautiful Myanmar Girl</span>
+            </div>
+            <div class="imgcontainer">
+                <a href="images/Novitiate-Ceremony-Shin-Pyu-In-Myanmar.jpg" target="_blank"> <img
+                        src="images/Novitiate-Ceremony-Shin-Pyu-In-Myanmar.jpg" alt="image"></a>
+                <span>Novitiation Ceremony</span>
+            </div>
+            <div class="imgcontainer">
+                <a href="images/Loverly Flower Vendor1.jpg" target="_blank"> <img
+                        src="images/Loverly Flower Vendor1.jpg" alt="image"></a>
+                <span>Loverly Flower Vendor</span>
+            </div>
+            <div class="imgcontainer">
+                <a href="images/Myanmar Puppet.jpg" target="_blank"> <img src="images/Myanmar Puppet.jpg"
+                        alt="image"></a>
+                <span>Myanmar Puppet</span>
+            </div>
+            <div class="imgcontainer">
+                <a href="images/Colonial Era Fashion1.jpg" target="_blank"> <img src="images/Colonial Era Fashion1.jpg"
+                        alt="image"></a>
+                <span>Colonial Era Fashion,Traditional Clothes</span>
+            </div>
+            <div class="imgcontainer">
+                <a href="images/Thanaka.jpg" target="_blank"> <img src="images/Thanaka.jpg" alt="image"></a>
+                <span>Thanaka Paste</span>
+            </div>
+            <div class="imgcontainer">
+                <a href="images/Myanmar-Dances.jpg" target="_blank"> <img src="images/Myanmar-Dances.jpg"
+                        alt="image"></a>
+                <span>Burmese Dance</span>
+            </div>
+            <div class="imgcontainer">
+                <a href="images/wearing thanaka.jpg" target="_blank"> <img src="images/wearing thanaka.jpg"
+                        alt="image"></a>
+                <span>Wearing Thanaka</span>
+            </div>
+        </div>
+    </div>
+
+
     <footer class="main-footer">
         <div class="footer-black-box">
-<div class="copyright-text">
-                <p>Copyright ©2026 <i>Explore the Beauty of Myanmar by Zenith team.</i> All rights reserved.</p>
+            <div class="copyright-text">
+                <p>Copyright ©2026 <i>Explore the Beauty of Myanmar.</i> All rights reserved.</p>
             </div>
             <div class="footer-links">
                 <span class="footer-static-text">Privacy Policy</span> -
                 <a href="About Us.html#contact-section">About</a>
             </div>
-            
+
             <div class="back-to-top">
                 <a href="#top">
                     <span class="arrow">^</span><br>
                     BACK TO TOP
                 </a>
             </div>
+
         </div>
-       </div>
     </footer>
 </body>
+
 </html>
