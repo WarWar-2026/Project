@@ -11,26 +11,17 @@
     <style>
         .content-section {
             background-color: rgb(234, 248, 220);
-            padding: 20px;
+            padding: 40px;
             border-radius: 15px;
-            margin: 20px 5%;
+            margin: 50px 10%;
             box-sizing: border-box;
             box-shadow: rgba(222, 212, 212, 0.1);
-        }
-
-        @media (min-width: 768px) {
-            .content-section {
-                padding: 40px;
-                margin: 50px 10%;
-            }
-
         }
 
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
             margin: 0;
             padding: 0;
-            padding-top: 70px;
             line-height: 1.6;
             background: linear-gradient(to bottom, #e3f2e1, #cce1c9);
         }
@@ -40,53 +31,31 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 20px;
+            padding: 15px 20px;
             background-color: white;
             border-bottom: 1px solid #ddd;
-            position: fixed;
-            width: 100%;
+            position: sticky;
             top: 0;
             z-index: 100;
-            box-sizing: border-box;
         }
 
-        .header-left{
-            display: flex;
-            align-items: center;
-            flex: 0 0 auto;
-        }
-        .header-left img {
-            height: 35px;
+        .header-left .logo-container img {
+            height: 40px;
             width: auto;
         }
 
         .header-title {
-            flex: 1;
-            text-align: center;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
             color: #d49a00;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: bold;
+            white-space: normal;
             text-align: center;
-            margin: 0 15px;
-            text-shadow: 2px 2px 10px #FFFF00;
+            width: 60%;
         }
 
-        .header-right {
-            flex: 0 0 auto;
-            font-size: 24px;
-            cursor: pointer;
-        }
-        @media (max-width: 768px) {
-            header {
-                padding: 10px;
-            }
-            .header-title{
-                font-size: 1.1rem !important;
-                margin: 0 5px;
-            }
-            }
-        
-       
         .menu-bar-icon {
             font-size: 2rem;
             cursor: pointer;
@@ -269,66 +238,6 @@
             font-weight: bold;
         }
 
-
-
-
-        /* Banner Container */
-        .trip-banner-container {
-            display: flex;
-            flex-direction: column;
-            /* ဖုန်းမှာ တစ်ခုအောက်တစ်ခု */
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-            margin: 40px auto;
-            padding: 0 20px;
-            max-width: 1200px;
-        }
-
-        .banner-text-box {
-            flex: 1;
-            background-color: rgb(234, 248, 220);
-            padding: 20px;
-            border-radius: 20px;
-            text-align: center;
-            width: 100%;
-            /* ဖုန်းမှာ အပြည့်ယူမယ် */
-            box-sizing: border-box;
-        }
-
-        .banner-text-box p {
-            color: #D4AF37;
-            font-style: italic;
-            font-size: 18px;
-            margin: 0;
-        }
-
-        .banner-image {
-            width: 100%;
-            /* ဖုန်းမှာ အပြည့် */
-            height: auto;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Laptop နဲ့ Tablet အတွက် ပြင်ဆင်ချက် (768px ထက်ကြီးလျှင်) */
-        @media (min-width: 768px) {
-            .trip-banner-container {
-                flex-direction: row;
-                /* ဘေးချင်းယှဉ်ခိုင်းမယ် */
-            }
-
-            .banner-text-box {
-                width: auto;
-                /* laptop မှာ ပုံသေ width မယူတော့ဘူး */
-            }
-
-            .banner-image {
-                width: 50%;
-                /* laptop မှာ နေရာတစ်ဝက်ယူမယ် */
-            }
-        }
-
         /* Form Styling */
         .contact-box {
             background: #e9ecef;
@@ -380,20 +289,7 @@
 
         @media (max-width: 600px) {
             .header-title {
-                font-size: 1rem !important;
-            }
-
-            .destination-title {
-                font-size: 1.5rem;
-            }
-
-            .destination-text-box {
-                font-size: 15px;
-                padding: 15px;
-            }
-
-            .custom-slides img {
-                height: 250px;
+                font-size: 0.9rem;
             }
 
             .mySwiper {
@@ -418,16 +314,13 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 20px;
+            gap: 170px;
             max-width: 1000px;
             margin: auto;
-            flex-wrap: wrap;
-            padding: 20px;
         }
 
         .left {
-            width: 100%;
-            max-width: 450px;
+            width: 30%;
             background: #fff;
             padding: 20px;
             border-radius: 12px;
@@ -442,28 +335,12 @@
         }
 
         .right {
-            width: 100%;
-            max-width: 450px;
+            width: 40%;
             background: #fff;
             padding: 20px;
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             text-align: center;
-        }
-
-        @media (min-width: 768px) {
-            .container {
-                flex-wrap: nowrap;
-                gap: 50px;
-            }
-
-            .left {
-                width: 40%;
-            }
-
-            .right {
-                width: 50%;
-            }
         }
 
         iframe {
@@ -485,7 +362,7 @@
 
         /*Background color for Footer*/
         .main footer {
-            padding: 20px 0;
+            padding: 60px 0 150px 0;
             padding-bottom: 120px !important;
             margin-bottom: 0;
             text-align: center;
@@ -493,7 +370,6 @@
         }
 
         .footer-black-box {
-            padding: 20px;
             background-color: #76f486;
             padding-top: 50px;
             padding-bottom: 40px;
@@ -580,6 +456,205 @@
         .back-to-top a:hover {
             color: #ffe600;
         }
+
+        /* =========================
+   MOBILE RESPONSIVE
+========================= */
+        @media screen and (max-width: 768px) {
+            .header-title {
+                font-size: 0.85rem !important;
+                width: 55%;
+                line-height: 1.3;
+            }
+
+            body {
+                overflow-x: hidden;
+            }
+
+            header {
+                padding: 10px 15px;
+            }
+
+            .header-title {
+                font-size: 1rem !important;
+                text-align: center;
+                width: 70%;
+            }
+
+            .menu-bar-icon {
+                font-size: 1.6rem;
+            }
+
+            .header-left .logo-container img {
+                width: 55px !important;
+            }
+
+            /* Main sliders */
+            .mySwiper {
+                height: 250px !important;
+            }
+
+            .highlightSwiper {
+                height: 220px !important;
+                width: 95%;
+            }
+
+            .swiper-slide img {
+                object-fit: cover;
+            }
+
+            .place-name {
+                font-size: 20px;
+                top: 70%;
+            }
+
+            /* Hero text */
+            .hero-text {
+                font-size: 1rem;
+                padding: 0 10px;
+            }
+
+            /* Content section */
+
+            .content-section {
+                margin: 20px 10px;
+                padding: 20px;
+            }
+
+            .content-section h2 {
+                font-size: 22px !important;
+            }
+
+            .content-section p {
+                font-size: 14px;
+                text-align: justify;
+                line-height: 1.9;
+            }
+
+            /* Map & video section */
+            .container {
+                flex-direction: column;
+                gap: 20px;
+                padding: 0 10px;
+            }
+
+            .left,
+            .right {
+                width: 100%;
+            }
+
+            .left img {
+                height: 230px;
+            }
+
+            iframe {
+                height: 220px;
+            }
+
+            /* Destination sliders */
+            .custom-slider {
+                max-width: 100%;
+            }
+
+            .custom-slides img {
+                height: 220px;
+            }
+
+            .destination-title {
+                font-size: 1.5rem;
+            }
+
+            .destination-text-box {
+                font-size: 15px;
+                padding: 15px;
+                line-height: 1.7;
+            }
+
+            /* Summary section */
+            div[style*="max-width: 950px"] {
+                padding: 0 15px !important;
+            }
+
+            div[style*="max-width: 950px"] h2 {
+                font-size: 24px !important;
+            }
+
+            div[style*="font-size: 18px"] {
+                font-size: 15px !important;
+                text-indent: 20px !important;
+            }
+
+            /* Create your best trip section */
+            div[style*="display: flex; align-items: center; justify-content: center;"] {
+                flex-direction: column;
+            }
+
+            div[style*="display: flex; align-items: center; justify-content: center;"] img {
+                width: 100% !important;
+            }
+
+            /* Quote text */
+            div[style*="text-align: center; padding: 0 10%"] p {
+                font-size: 18px !important;
+            }
+
+            /* Contact box */
+            .contact-box {
+                margin: 20px 10px;
+                padding: 20px;
+            }
+
+            .submit-btn {
+                width: 100%;
+            }
+
+            /* Footer */
+            .footer-links a {
+                display: block;
+                margin: 10px 0;
+            }
+
+            .copyright-text p {
+                font-size: 14px;
+                padding: 0 10px;
+            }
+        }
+
+        @media screen and (max-width:768px) {
+
+            body {
+                overflow-x: hidden;
+            }
+
+            .content-section {
+                margin: 20px 10px;
+                padding: 20px;
+            }
+
+            .container {
+                flex-direction: column;
+                gap: 20px;
+                padding: 0 10px;
+            }
+
+            .left,
+            .right {
+                width: 100%;
+            }
+
+            iframe {
+                height: 220px;
+            }
+
+            .highlightSwiper {
+                height: 220px !important;
+            }
+
+            .place-name {
+                font-size: 20px;
+            }
+
+        }
     </style>
     <link rel="icon" href="images/Favicon.jpg" type="image/jpeg" sizes="128x128">
 </head>
@@ -595,9 +670,6 @@
         </div>
         <div class="header-title" style="font-size: 1.8rem; text-shadow:2px 2px 10px #FFFF00;font-weight: bold;">Explore
             the Beauty of Myanmar</div>
-            <div class="header-right">
-                <i class="fafa-bars"></i></div>
-            </div>
         <div class="menu-bar-icon" onclick="openNav()">&#9776;</div>
     </header>
 
@@ -666,7 +738,7 @@
 
         <div class="content-section">
             <div
-                style="text-align: center; margin: 40px 0; padding: 0 50px; max-width: 1000px; margin-left: auto; margin-right: auto;">
+                style="text-align: center; margin: 40px 0; padding: 0 20px; max-width: 1000px; margin-left: auto; margin-right: auto;">
                 <h2 style="color: #d49a00; font-style: italic; font-size: 28px;">~Welcome to Our Golden Land~</h2>
                 <p>Myanmar, officially the Republic of the Union of Myanmar and formerly known as Burma, is a country
                     located in Southeast Asia. It is the largest country by land area in Mainland Southeast Asia and has
@@ -1131,21 +1203,23 @@
             </div>
         </div>
 
-
-
-
-        <div class="trip-banner-container">
-            <div class="banner-text-box">
-                <p>'Make every trip a story to tell'</p>
+        <div
+            style="display: flex; align-items: center; justify-content: center; gap: 30px; margin: 40px 0; padding: 0 20px; max-width: 1200px; margin-left: auto; margin-right: auto;">
+            <div
+                style="flex: 1; background-color:rgb(234, 248, 220); padding: 20px; border-radius: 20px; text-align: center;">
+                <p style="color: #D4AF37; font-style: italic; font-size: 18px; margin: 0;">'Make every trip a
+                    story to
+                    tell'</p>
             </div>
-
-            <img src="images/create your best trip.jpg" alt="Create Your Best Trip" class="banner-image">
-
-            <div class="banner-text-box">
-                <p>'Plan your perfect getaway'</p>
+            <img src="images/create your best trip.jpg" alt="Create Your Best Trip"
+                style="width: 49%; height: auto; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+            <div
+                style="flex: 1; background-color:rgb(234, 248, 220); padding: 20px; border-radius: 20px; text-align: center;">
+                <p style="color: #D4AF37; font-style: italic; font-size: 18px; margin: 0;">'Plan your perfect
+                    getaway'
+                </p>
             </div>
         </div>
-
 
         <div style="text-align: center; padding: 0 10%; margin-top: 20px; width: 100%; box-sizing: border-box;">
             <p
@@ -1180,45 +1254,45 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-function openNav() { document.getElementById("mySidebar").style.width = "300px"; }
-function closeNav() { document.getElementById("mySidebar").style.width = "0"; }
+        function openNav() { document.getElementById("mySidebar").style.width = "270px"; }
+        function closeNav() { document.getElementById("mySidebar").style.width = "0"; }
 
-function handleSearch() {
-    let query = document.getElementById("menuSearch").value.toLowerCase().trim();
+        function handleSearch() {
+            let query = document.getElementById("menuSearch").value.toLowerCase().trim();
 
-    if (query.includes("shwedagon")) {
-        document.getElementById("shwedagon").scrollIntoView({ behavior: "smooth" });
-    }
-    else if (query.includes("kyaiktiyo") || query.includes("golden rock")) {
-        document.getElementById("kyaiktiyo").scrollIntoView({ behavior: "smooth" });
-    }
-    else if (query.includes("inle")) {
-        document.getElementById("inle").scrollIntoView({ behavior: "smooth" });
-    }
-    else if (query.includes("ngapali")) {
-        document.getElementById("ngapali").scrollIntoView({ behavior: "smooth" });
-    }
-    else {
-        alert("Not found!");
-    }
+            if (query.includes("shwedagon")) {
+                document.getElementById("shwedagon").scrollIntoView({ behavior: "smooth" });
+            }
+            else if (query.includes("kyaiktiyo") || query.includes("golden rock")) {
+                document.getElementById("kyaiktiyo").scrollIntoView({ behavior: "smooth" });
+            }
+            else if (query.includes("inle")) {
+                document.getElementById("inle").scrollIntoView({ behavior: "smooth" });
+            }
+            else if (query.includes("ngapali")) {
+                document.getElementById("ngapali").scrollIntoView({ behavior: "smooth" });
+            }
+            else {
+                alert("Not found!");
+            }
 
-    closeNav();
-}
+            closeNav();
+        }
 
-var swiper1 = new Swiper(".mySwiper", {
-    loop: true,
-    autoplay: { delay: 4000, disableOnInteraction: false },
-    pagination: { el: ".swiper-pagination", clickable: true },
-    navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
-    speed: 800,
-});
+        var swiper1 = new Swiper(".mySwiper", {
+            loop: true,
+            autoplay: { delay: 4000, disableOnInteraction: false },
+            pagination: { el: ".swiper-pagination", clickable: true },
+            navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
+            speed: 800,
+        });
 
-var swiper2 = new Swiper(".highlightSwiper", {
-    loop: true,
-    autoplay: { delay: 4000, disableOnInteraction: false },
-    speed: 800,
-});
-</script>
+        var swiper2 = new Swiper(".highlightSwiper", {
+            loop: true,
+            autoplay: { delay: 4000, disableOnInteraction: false },
+            speed: 800,
+        });
+    </script>
     <footer class="main-footer">
         <div class="footer-black-box">
             <div class="copyright-text">
