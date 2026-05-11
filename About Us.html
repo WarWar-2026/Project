@@ -16,14 +16,15 @@
             color: #333;
             margin: 0;
             padding: 0;
+            overflow-x: hidden;
+            overflow-y: auto;
         }
 
         html {
             scroll-behavior: smooth;
         }
-        body {
-            overflow-x: hidden;
-        }
+
+
 
         /* Header CSS - Original */
         header {
@@ -66,7 +67,7 @@
             color: #333;
         }
 
-        /* Sidebar/Menu CSS - Original */
+        /* Sidebar/Menu CSS */
         .sidebar {
             height: 100%;
             width: 0;
@@ -81,6 +82,18 @@
         }
 
         .sidebar-content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .closebtn {
+            position: static;
+            font-size: 40px;
+            align-self: flex-end;
+        }
+.sidebar-content {
             padding: 20px;
         }
 
@@ -97,6 +110,7 @@
             margin-bottom: 30px;
             gap: 5px;
         }
+
 
         .sidebar-search input {
             flex: 1;
@@ -285,7 +299,7 @@
             padding-bottom: 40px;
             text-align: center;
             width: 100%;
-            
+
         }
 
 
@@ -371,8 +385,13 @@
         /*==============MOBILE RESPONSIVE=============*/
         @media (max-width: 768px) {
 
+            header {
+                padding: 10px 15px;
+            }
+
+
             .header-title {
-                font-size: 1rem;
+                font-size: 1rem !important;
                 width: 65%;
                 text-align: center;
                 white-space: normal;
@@ -380,11 +399,16 @@
             }
 
             .header-left .logo-container img {
-                width: 60px;
+                width: 55px;
+            }
+
+            .sidebar {
+                width: 0;
+                max-width: 280px;
             }
 
             .menu-bar-icon {
-                font-size: 1.7rem;
+                font-size: 1.6rem;
             }
 
             .member-card {
@@ -414,8 +438,6 @@
             }
 
         }
-
-       
     </style>
 </head>
 
@@ -433,7 +455,7 @@
 
     <div id="mySidebar" class="sidebar">
         <div class="sidebar-content">
-            <span class="closebtn" onclick="closeNav()">&times;</span>
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <div class="sidebar-search">
                 <input type="text" id="menuSearch" placeholder="Search...">
                 <button onclick="handleSearch()">Search</button>
@@ -537,7 +559,7 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         function openNav() {
-            document.getElementById("mySidebar").style.width = "300px";
+            document.getElementById("mySidebar").style.width = "280px";
         }
 
         function closeNav() {
@@ -568,7 +590,6 @@
                     BACK TO TOP
                 </a>
             </div>
-        </div>
         </div>
     </footer>
 </body>
