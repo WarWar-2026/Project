@@ -17,12 +17,12 @@
             background: linear-gradient(to bottom, #e3f2e1, #cce1c9);
         }
 
-        /* Header CSS */
+
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 20px;
+            padding: 10px 20px;
             background-color: white;
             border-bottom: 1px solid #ddd;
             position: sticky;
@@ -36,14 +36,12 @@
         }
 
         .header-title {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
             color: #d49a00;
-            font-size: 1.8rem;
+            font-size: clamp(1rem, 4vw, 1.8rem);
             font-weight: bold;
-            white-space: nowrap;
+            text-align: center;
             text-shadow: 2px 2px 10px #FFFF00;
+            flex-grow: 1;
         }
 
         .menu-bar-icon {
@@ -51,6 +49,7 @@
             cursor: pointer;
             color: #333;
         }
+
 
         .sidebar {
             height: 100%;
@@ -88,6 +87,7 @@
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 4px;
+            width: 50%;
         }
 
         .sidebar-search button {
@@ -109,15 +109,16 @@
             transition: 0.3s;
         }
 
+        /* Sidebar menu hover gold color effect */
         .sidebar a:hover {
             color: #d49a00;
         }
 
         .container {
-            width: 80%;
+            width: 90%;
             max-width: 800px;
-            margin: 50px auto;
-            padding: 40px;
+            margin: 30px auto;
+            padding: 25px;
             background: rgb(234, 248, 220);
             border-radius: 15px;
             box-shadow: 0px 10px 30px rgba(222, 212, 212, 0.1);
@@ -127,9 +128,10 @@
         h1 {
             text-align: center;
             color: #d49a00;
-            font-size: 35px;
+            font-size: clamp(1.5rem, 6vw, 35px);
+            /* Responsive font size */
             font-weight: bold;
-            margin-bottom: 50px;
+            margin-bottom: 30px;
             text-transform: uppercase;
             letter-spacing: 2px;
         }
@@ -140,17 +142,16 @@
             margin-bottom: 25px;
             line-height: 1.6;
             transition: transform 0.3s ease;
-            cursor: default;
         }
 
         .tip-row:hover {
-            transform: scale(1.05) translateX(10px);
+            transform: scale(1.02) translateX(5px);
         }
 
         .emoji {
             margin-right: 15px;
-            font-size: 28px;
-            min-width: 40px;
+            font-size: 24px;
+            min-width: 35px;
             text-align: center;
             transition: transform 0.3s ease;
         }
@@ -161,14 +162,12 @@
 
         .content {
             flex: 1;
-            text-align: left;
         }
 
         .title {
             font-weight: bold;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: #201d1d;
-            display: inline-block;
         }
 
         .description {
@@ -176,16 +175,31 @@
             color: #474141;
         }
 
-        @media (max-width: 768px) {
+        @media (min-width: 769px) {
             .container {
-                width: 95%;
-                padding: 20px;
+                width: 80%;
+                padding: 40px;
+                margin: 50px auto;
+            }
+
+            .header-title {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
             }
         }
+
+        @media (max-width: 480px) {
+            .title {
+                display: block;
+                margin-bottom: 5px;
+            }
+        }
+
         /*Background color for Footer*/
         .main footer {
-           padding: 60px 0 150px 0;
-           padding-bottom: 120px !important;
+            padding: 60px 0 150px 0;
+            padding-bottom: 120px !important;
             margin-bottom: 0;
             text-align: center;
             font-family: 'Times New Roman', Times, serif;
@@ -206,7 +220,8 @@
             padding: 0 20px;
         }
 
-        .footer-line, hr {
+        .footer-line,
+        hr {
             display: none;
         }
 
@@ -276,6 +291,74 @@
 
         .back-to-top a:hover {
             color: #ffe600;
+        }
+
+        /* =========== MOBILE RESPONSIVE =============== */
+        @media screen and (max-width: 768px) {
+
+            body {
+                overflow-x: hidden;
+               
+
+            }
+
+            /* Header */
+            header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                height: auto;
+                padding: 10px 13px;
+            }
+
+            .header-title {
+                font-size: 1rem !important;
+                width: 65%;
+                white-space: normal;
+                text-align: center;
+                line-height: 1.1;
+                flex: 1;
+                margin-left: -23px;
+            }
+
+            .header-left .logo-container img {
+                width: 55px !important;
+                height: auto;
+                margin-left: 0;
+            }
+
+            .menu-bar-icon {
+                font-size: 1.6rem;
+            }
+
+            /* Sidebar */
+            .sidebar {
+                width: 0;
+            }
+
+            .sidebar-content {
+                padding: 15px;
+            }
+
+            .sidebar a {
+                font-size: 1rem;
+            }
+
+            /* Footer */
+            .copyright-text p {
+                font-size: 14px;
+                padding: 0 10px;
+            }
+
+            .footer-links a {
+                display: block;
+                margin: 10px 0;
+                font-size: 16px;
+            }
+
+            .back-to-top {
+                margin-bottom: 135px;
+            }
         }
     </style>
     <link rel="icon" href="images/Favicon.jpg" type="image/jpeg" sizes="128x128">
@@ -351,6 +434,7 @@
                     avoid overspending.</span>
             </div>
         </div>
+
         <div class="tip-row">
             <span class="emoji">🛡</span>
             <div class="content">
@@ -367,7 +451,6 @@
                     countries.</span>
             </div>
         </div>
-
         <div class="tip-row">
             <span class="emoji">📅</span>
             <div class="content">
@@ -375,7 +458,6 @@
                     of your passport before traveling.</span>
             </div>
         </div>
-
         <div class="tip-row">
             <span class="emoji">⚠️</span>
             <div class="content">
@@ -395,7 +477,8 @@
 
     <script>
         function openNav() {
-            document.getElementById("mySidebar").style.width = "300px";
+            var sidebarWidth = (window.innerWidth < 480) ? "270px" : "260px";
+            document.getElementById("mySidebar").style.width = sidebarWidth;
         }
 
         function closeNav() {
@@ -412,14 +495,14 @@
     </script>
     <footer class="main-footer">
         <div class="footer-black-box">
-<div class="copyright-text">
+            <div class="copyright-text">
                 <p>Copyright ©2026 <i>Explore the Beauty of Myanmar by Zenith team.</i> All rights reserved.</p>
             </div>
             <div class="footer-links">
                 <span class="footer-static-text">Privacy Policy</span> -
                 <a href="About Us.html#contact-section">About</a>
             </div>
-            
+
             <div class="back-to-top">
                 <a href="#top">
                     <span class="arrow">^</span><br>
@@ -427,7 +510,7 @@
                 </a>
             </div>
         </div>
-       </div>
+        </div>
     </footer>
 </body>
 
