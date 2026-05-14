@@ -473,7 +473,7 @@
 
             header {
                 padding: 10px 15px;
-            }      
+            }
 
             .menu-bar-icon {
                 font-size: 1.6rem;
@@ -613,8 +613,6 @@
                 padding: 0 10px;
             }
         }
-
-        
     </style>
     <link rel="icon" href="images/Favicon.jpg" type="image/jpeg" sizes="128x128">
 </head>
@@ -1194,22 +1192,26 @@
         <div class="contact-box">
             <h2>Do you need any help?</h2>
             <p>Let us know if there's anything you'd like to know.</p>
-            <form>
-                <div class="input-group"><input type="text" placeholder="Name"></div>
-                <div class="input-group"><input type="email" placeholder="Email"></div>
-                <div class="input-group"><textarea placeholder="Comment" rows="4"></textarea></div>
+            <form id="commentForm">
+                <div class="input-group">
+                    <input type="text" id="name" placeholder="Name" required>
+                </div>
+                <div class="input-group"><input type="email" id="email" placeholder="Email" required></div>
+                <div class="input-group"><textarea id="comment" placeholder="Comment" rows="4" required></textarea>
+                </div>
                 <button type="submit" class="submit-btn">Submit</button>
             </form>
         </div>
-
         <div class="footer-info">
-            <h2>Contact Us</h2>
-            <p>You can contact us by phone or email.</p>
-            <div class="contact-detail"><span>📞</span> Ph: <a href="tel: +95 9 750 456 339"
-                    style="text-decoration: none; color: inherit;">+95 9 750 456 339</a></div>
-            <div class="contact-detail"><span>✉️</span> Email: <a href="mailto: zenith.mmtravel@gmail.com"
-                    style="text-decoration: none; color: inherit;">zenith.mmtravel@gmail.com</a></div>
-        </div>
+            <div id="comments"></div>
+            <div class="footer-info">
+                <h2>Contact Us</h2>
+                <p>You can contact us by phone or email.</p>
+                <div class="contact-detail"><span>📞</span> Ph: <a href="tel: +95 9 750 456 339"
+                        style="text-decoration: none; color: inherit;">+95 9 750 456 339</a></div>
+                <div class="contact-detail"><span>✉️</span> Email: <a href="mailto: zenith.mmtravel@gmail.com"
+                        style="text-decoration: none; color: inherit;">zenith.mmtravel@gmail.com</a></div>
+            </div>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -1253,6 +1255,54 @@
             speed: 800,
         });
     </script>
+
+    <script>
+        const form = document.getElementById('commentForm');
+        const container = document.getElementById('comments');
+
+        // function to load comments
+        function loadComments() {
+            container.innerHTML = ""; // clear old list
+            fetch('http://localhost:3000/comments')
+                .then(res => res.json())
+                .then(data => {
+                    data.forEach(c => {
+                        const p = document.createElement('p');
+                        p.textContent = `${c.name}: ${c.comment}`;
+
+
+                        container.appendChild(p);
+                    });
+                })
+                .catch(err => console.error(err));
+        }
+
+        // initial load
+        loadComments();
+
+        // handle form submit
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const comment = document.getElementById('comment').value;
+
+            fetch('http://localhost:3000/comments', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, email, comment })
+            })
+                .then(res => res.text())
+                .then(msg => {
+                    alert(msg);
+                    form.reset();
+                    loadComments(); // refresh comments list immediately
+                })
+                .catch(err => console.error(err));
+        });
+    </script>
+
     <footer class="main-footer">
         <div class="footer-black-box">
             <div class="copyright-text">
