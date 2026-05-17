@@ -1263,7 +1263,7 @@
         // function to load comments
         function loadComments() {
             container.innerHTML = ""; // clear old list
-            fetch('http://localhost:3000/comments')
+            fetch('http://116.206.194.3.443/comments')
                 .then(res => res.json())
                 .then(data => {
                     data.forEach(c => {
@@ -1288,7 +1288,7 @@
             const email = document.getElementById('email').value;
             const comment = document.getElementById('comment').value;
 
-            fetch('http://localhost:3000/comments', {
+            fetch('http://116.206.194.3.443/comments', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ name, email, comment })
