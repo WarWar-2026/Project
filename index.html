@@ -7,7 +7,7 @@
     <title>Explore the Beauty of Myanmar</title>
 
     <meta name="description"
-        content="Explore the rich culture, hidden gems, and breathtaking destinations of Myanmar with Zenith Team. Get expert travel tips and download free high-quality travel photos.">
+        content="Discover the breathtaking beauty of Myanmar with Zenith Team. Explore famous destinations, get expert travel tips, and download free high-quality photos.">
     <meta name="keywords"
         content="Explore the Beauty of Myanmar, Zenith Team, Myanmar travel guide, beautiful places in Myanmar, free photos Myanmar, Myanmar tourist attractions, travel tips Myanmar">
 
@@ -1197,7 +1197,7 @@
         <div class="contact-box">
             <h2>Do you need any help?</h2>
             <p>Let us know if there's anything you'd like to know.</p>
-            <form id="commentForm">
+            <form id="form">
                 <div class="input-group">
                     <input type="text" id="name" placeholder="Name" required>
                 </div>
@@ -1262,14 +1262,13 @@
     </script>
 
     <script>
-        const form = document.getElementById('commentForm');
+        const form = document.getElementById('form');
         const container = document.getElementById('comments');
 
         // function to load comments
         function loadComments() {
             container.innerHTML = ""; // clear old list
-            fetch('http://116.206.194.3.443/comments')
-                .then(res => res.json())
+            fetch('https://scheming-anew-supreme.ngrok-free.dev/comments').then(res => res.json())
                 .then(data => {
                     data.forEach(c => {
                         const p = document.createElement('p');
@@ -1293,7 +1292,7 @@
             const email = document.getElementById('email').value;
             const comment = document.getElementById('comment').value;
 
-            fetch('http://116.206.194.3.443/comments', {
+            fetch('https://scheming-anew-supreme.ngrok-free.dev/comments', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ name, email, comment })
